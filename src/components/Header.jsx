@@ -19,7 +19,7 @@ const Header = () => {
                 <input
                   type="text"
                   placeholder="Pesquisar produto..."
-                  className="w-140 bg-light-gray-3 pt-4 pb-4 pl-6 rounded-lg font-normal text-dark-gray-3 focus:outline-nonetracking-wider"
+                  className="w-140 bg-light-gray-3 pt-4 pb-4 pl-6 rounded-lg font-normal text-dark-gray-3 focus:outline-none tracking-wider"
                 />
                 <CiSearch className="absolute right-3 top-4.5 w-6 h-6 text-light-gray" />
               </div>
