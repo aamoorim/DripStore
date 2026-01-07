@@ -71,3 +71,8 @@ body {
   font-size: 13px;
   line-height: 24px;
 }
+
+hr{
+  color: white !important;
+  width: 100%;
+}

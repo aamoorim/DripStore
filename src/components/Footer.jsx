@@ -1,90 +1,59 @@
-import React from 'react'
-import { FaFacebookF} from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import React from 'react';
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col absolute bottom-0 w-full h-89.5 bg-dark-gray">
-        <section className="footer-section-padding text-white justify-center pl-26 pt-18 pb-5.5">
-            <div className='footer-links flex justify-between items-start flex-row flex-wrap w-full text-left'>
-              <div className='footer-links-div'>
-                <img className='mb-8.5' src="../assets/logo-footer.svg" alt="Logo Digital Store Branca" />
-                <p className='mb-10'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
-                <div className='socialmedia'>
-                  <p><FaFacebookF className='w-3 h-5'/></p>
-                  <p><FaInstagram className='w-5 h-5'/></p>
-                  <p><FaXTwitter className='w-6 h-5'/></p>
-                </div>
-              </div>
-
-              <div className='footer-links-div'>
-                <h4>Informação</h4>
-                <a href="/about">
-                  <p>Sobre Drip Store</p>
-                </a>
-                
-                <a href="/security">
-                  <p>Segurança</p>
-                </a>
-
-                <a href="/whislist">
-                  <p>Wishlist</p>
-                </a>
-
-                <a href="/blog">
-                  <p>Blog</p>
-                </a>
-
-                <a href="/work-with-us">
-                  <p>Trabalhe Conosco</p>
-                </a>
-              </div>
-
-              <div className='footer-links-div'> 
-                <h4>Categorias</h4>
-                <a href="/tshirts">
-                  <p>Camisetas</p>
-                </a>
-                
-                <a href="/pants">
-                  <p>Calças</p>
-                </a>
-
-                <a href="/hats">
-                  <p>Bonés</p>
-                </a>
-
-                <a href="/headphones">
-                  <p>Headphones</p>
-                </a>
-
-                <a href="/shoes">
-                  <p>Tênis</p>
-                </a>
-              </div>
-              <div className='footer-links-div'> 
-                <h4>Contato</h4>
-                <a href="/tshirts" className='w-70 mb-3.5'>
-                  <p>Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-161</p>
-                </a>
-                
-                <a href="/pants">
-                  <p>(85) 3051-3411</p>
-                </a>
-              </div>
-
-              <hr />
-              <div className='footer-below'>
-                <div className='footer-copyright'>
-                  <p>@{new Date().getFullYear()} Digital College</p>
-                </div>
-              </div>
+    <footer className="bg-dark-gray text-white w-full pt-18.5 pb-5.5 absolute bottom-0">
+      <div className="container ml-26">
+        <div className="flex items-start flex-wrap gap-48">
+          {/* Logo e Descrição */}
+          <div className="w-1/5 flex flex-col ">
+            <img className="mb-6" src="../assets/logo-footer.svg" alt="Logo Digital Store Branca" />
+            <p className="mb-8 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <div className="flex space-x-4">
+              <FaFacebookF className="w-6 h-6" />
+              <FaInstagram className="w-6 h-6" />
+              <FaTwitter className="w-6 h-6" />
             </div>
-        </section>
+          </div>
+
+          {/* Informações */}
+          <div className="w-1/10 flex flex-col">
+            <h4 className="font-semibold mb-4">Informação</h4>
+            <a href="/about" className="text-sm mb-2">Sobre Drip Store</a>
+            <a href="/security" className="text-sm mb-2">Segurança</a>
+            <a href="/whislist" className="text-sm mb-2">Wishlist</a>
+            <a href="/blog" className="text-sm mb-2">Blog</a>
+            <a href="/work-with-us" className="text-sm mb-2">Trabalhe Conosco</a>
+          </div>
+
+          {/* Categorias */}
+          <div className="w-1/19 flex flex-col">
+            <h4 className="font-semibold mb-4">Categorias</h4>
+            <a href="/tshirts" className="text-sm mb-2">Camisetas</a>
+            <a href="/pants" className="text-sm mb-2">Calças</a>
+            <a href="/hats" className="text-sm mb-2">Bonés</a>
+            <a href="/headphones" className="text-sm mb-2">Headphones</a>
+            <a href="/shoes" className="text-sm mb-2">Tênis</a>
+          </div>
+
+          {/* Contato */}
+          <div className="w-1/7 flex flex-col">
+            <h4 className="font-semibold mb-4">Contato</h4>
+            <a href="/contact" className="text-sm mb-2">Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-161</a>
+            <a href="tel:+558530513411" className="text-sm">Tel: (85) 3051-3411</a>
+          </div>
+        </div>
+
+        <hr className="my-8 border-gray-700" />
+
+        {/* Copyright */}
+        <div className="text-center text-sm">
+          <p>@{new Date().getFullYear()} Digital College</p>
+        </div>
+      </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
