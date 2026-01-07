@@ -1,17 +1,12 @@
-import { FilterSidebar } from '../components/FilterSidebar'; // Ajuste o import conforme sua pasta
+import { FilterSidebar } from '../components/FilterSidebar'; 
 
 export default function ProductListingPage() {
   return (
     <div className="min-h-screen bg-[#F9F8FE]">
-      {/* Main Layout */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex gap-8">
-        
-        {/* Lado Esquerdo: Sidebar */}
         <FilterSidebar />
 
-        {/* Lado Direito: Lista de Produtos (Placeholder) */}
         <div className="flex-1">
-           {/* Cabeçalho da Lista (Resultados e Ordenação) */}
            <div className="flex justify-between items-center mb-6">
              <span className="text-gray-700 font-medium">
                Resultados para "Tênis" - <span className="text-gray-500 font-normal">389 produtos</span>
@@ -27,9 +22,8 @@ export default function ProductListingPage() {
              </div>
            </div>
 
-           {/* Grid Placeholder (Onde os cards vão entrar) */}
+           {/* Grid Placeholder */}
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Vamos criar os cards na próxima etapa */}
               <div className="h-96 bg-white rounded border border-gray-200 flex items-center justify-center text-gray-400">Card 1</div>
               <div className="h-96 bg-white rounded border border-gray-200 flex items-center justify-center text-gray-400">Card 2</div>
               <div className="h-96 bg-white rounded border border-gray-200 flex items-center justify-center text-gray-400">Card 3</div>

@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const FilterSidebar = () => {
   return (
@@ -6,7 +5,6 @@ export const FilterSidebar = () => {
       <h3 className="font-bold text-gray-800 mb-4">Filtrar por</h3>
       <div className="w-full h-px bg-gray-200 mb-6"></div>
 
-      {/* Grupo: Marca */}
       <div className="mb-6">
         <h4 className="font-bold text-gray-700 mb-3 text-sm">Marca</h4>
         <div className="space-y-2">
@@ -22,7 +20,6 @@ export const FilterSidebar = () => {
         </div>
       </div>
 
-      {/* Grupo: Categoria */}
       <div className="mb-6">
         <h4 className="font-bold text-gray-700 mb-3 text-sm">Categoria</h4>
         <div className="space-y-2">
@@ -38,7 +35,6 @@ export const FilterSidebar = () => {
         </div>
       </div>
 
-       {/* Grupo: Gênero */}
        <div className="mb-6">
         <h4 className="font-bold text-gray-700 mb-3 text-sm">Gênero</h4>
         <div className="space-y-2">
@@ -54,7 +50,6 @@ export const FilterSidebar = () => {
         </div>
       </div>
 
-      {/* Grupo: Estado */}
       <div className="mb-6">
         <h4 className="font-bold text-gray-700 mb-3 text-sm">Estado</h4>
         <div className="space-y-2">
