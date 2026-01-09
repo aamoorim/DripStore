@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-gray text-white w-full pt-18 pb-5.5 pl-6 pr-6 fixed bottom-0 left-0 z-50">
+    <footer className="bg-dark-gray text-white w-full pt-18 pb-5.5 pl-6 pr-6 bottom-0 left-0 z-50">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-wrap gap-12 justify-between">
           {/* Logo e Descrição */}
@@ -135,7 +135,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-sm mt-5.5">
-          <p>@ {new Date().getFullYear()} Digital College</p>
+          <p className="text-sm leading-6">@ {new Date().getFullYear()} Digital College</p>
         </div>
       </div>
     </footer>
