@@ -16,6 +16,10 @@
   --color-light-gray-2: #CCCCCC;
   --color-light-gray-3: #F5F5F5;
   --color-white: #FFFFFF;
+
+  --breakpoint-xxs: 16rem;
+  --breakpoint-xs: 23rem;
+
 }
 
 * {
