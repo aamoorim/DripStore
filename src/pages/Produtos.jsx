@@ -1,57 +1,69 @@
-import { FilterSidebar } from '../components/FilterSidebar';
-import { ProductCard } from '../components/ProductCard';
+import { ArrowRight } from 'lucide-react';
+import { ProductGallery } from '../components/ProductGallery'; 
+import { ProductOptions } from '../components/ProductOptions'; 
+import { ProductCard } from '../components/ProductCard'; 
 
-const products = Array.from({ length: 9 }).map((_, index) => {
-  const hasDiscount = index < 3; 
+const mockImages = [
+  { id: 1, src: "assets/tenis-red.png", color: "#E2E3FF" }, 
+  { id: 2, src: "assets/tenis-red.png", color: "#FFE8BC" },
+  { id: 3, src: "assets/tenis-red.png", color: "#FFC0BC" },
+  { id: 4, src: "assets/tenis-red.png", color: "#DEC699" },
+  { id: 5, src: "assets/tenis-red.png", color: "#E8DFCF" },
+];
 
-  return {
-    id: index,
+
+const relatedProducts = Array.from({ length: 4 }).map((_, i) => ({
+    id: i,
     category: "Tênis",
     name: "K-Swiss V8 - Masculino",
     price: 200,
-    priceDiscount: hasDiscount ? 100 : null, 
-    image: "https://raw.githubusercontent.com/digitalcollegebr/projeto-digital-store/main/public/product-thumb-1.jpeg"
-  };
-});
+    priceDiscount: 100,
+    image: "assets/tenis.png"
+}));
 
-export default function ProductListingPage() {
+export default function ProductDetailsPage() {
   return (
-    <div className="min-h-screen bg-[#F9F8FE] font-sans">
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex gap-8">
-        <FilterSidebar />
-        <div className="flex-1">
-           <div className="flex justify-between items-center mb-6">
-             <span className="text-gray-800 font-semibold text-base">
-               Resultados para "Tênis" - <span className="text-gray-500 font-normal">389 produtos</span>
-             </span>
-             
-             <div className="group flex items-center border border-gray-300 rounded px-4 py-3 bg-white hover:border-pink-500 transition-colors cursor-pointer">
-                <span className="text-gray-500 text-sm mr-2 font-bold group-hover:text-pink-600 transition-colors">Ordenar por:</span>
-                <div className="relative">
-                  <select className="bg-transparent text-gray-700 text-sm outline-none cursor-pointer appearance-none pr-6 z-10 relative">
-                      <option>mais relevantes</option>
-                      <option>menor preço</option>
-                      <option>maior preço</option>
-                  </select>
-                  <span className="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 text-[10px] pointer-events-none">▼</span>
-                </div>
-             </div>
-           </div>
+    <div className="min-h-screen bg-[#F9F8FE] font-sans pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <p className="text-gray-500 text-sm font-medium">
+          Home / Produtos / Tênis / Nike / <span className="text-gray-800 font-bold">Tênis Nike Revolution 6 Next Nature Masculino</span>
+        </p>
+      </div>
 
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {products.map((product) => (
-                <ProductCard 
-                  key={product.id}
-                  category={product.category}
-                  name={product.name}
-                  price={product.price}
-                  priceDiscount={product.priceDiscount}
-                  image={product.image} 
-                />
-              ))}
-           </div>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-10 mb-20">
+        <div className="w-full lg:w-[60%]">
+            <ProductGallery images={mockImages} />
         </div>
+
+        <div className="w-full lg:w-[40%]">
+           <ProductOptions />
+        </div>
+
       </main>
+
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="flex justify-between items-center mb-6">
+            <h2 className="text-[#474747] font-bold text-xl md:text-2xl">
+                Produtos Relacionados
+            </h2>
+            <a href="#" className="text-[#C92071] flex items-center gap-2 font-bold hover:underline text-sm md:text-base">
+              Ver todos <ArrowRight className="w-5 h-5" />
+            </a>
+         </div>
+
+         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {relatedProducts.map((product) => (
+               <ProductCard 
+                 key={product.id}
+                 category={product.category}
+                 name={product.name}
+                 price={product.price}
+                 priceDiscount={product.priceDiscount}
+                 image={product.image}
+               />
+            ))}
+         </div>
+      </section>
     </div>
   );
 }
