@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-gray text-white w-full pt-18 pb-5.5 pl-6 pr-6 fixed bottom-0 left-0 z-50">
+    <footer className="bg-[#1F1F1F] text-white w-full pt-16 pb-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-wrap gap-12 justify-between">
           {/* Logo e Descrição */}
