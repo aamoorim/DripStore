@@ -1,67 +1,70 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-import { ProductGallery } from '../components/ProductGallery';
-import { ProductOptions } from '../components/ProductOptions';
+import React, { useState } from 'react';
+import { Filter, X } from 'lucide-react';
+import { FilterSidebar } from '../components/FilterSidebar';
 import { ProductCard } from '../components/ProductCard';
 
-const mockImages = [
-  { id: 1, src: "assets/tenis-red.png", color: "#E2E3FF" }, 
-  { id: 2, src: "assets/tenis-red.png", color: "#FFE8BC" },
-  { id: 3, src: "assets/tenis-red.png", color: "#FFC0BC" },
-  { id: 4, src: "assets/tenis-red.png", color: "#DEC699" },
-  { id: 5, src: "assets/tenis-red.png", color: "#E8DFCF" },
-];
+const productsData = Array.from({ length: 15 }).map((_, index) => ({
+  id: index,
+  category: "Tênis",
+  name: "K-Swiss V8 - Masculino",
+  price: 200,
+  priceDiscount: 100,
+  image: "assets/tenis.png"
+}));
 
-const relatedProducts = [
-    { id: 1, category: "Tênis", name: "K-Swiss V8 - Masculino", price: 200, priceDiscount: 100, image: "assets/tenis.png" },
-    { id: 2, category: "Tênis", name: "K-Swiss V8 - Masculino", price: 200, priceDiscount: 100, image: "assets/tenis.png" },
-    { id: 3, category: "Tênis", name: "K-Swiss V8 - Masculino", price: 200, priceDiscount: 100, image: "assets/tenis.png" },
-    { id: 4, category: "Tênis", name: "K-Swiss V8 - Masculino", price: 200, priceDiscount: 100, image: "assets/tenis.png" },
-];
+export default function ProductListingPage() {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-export default function ProductDetailsPage() {
   return (
-    <div className="min-h-screen bg-[#F9F8FE] font-sans pb-20">
-    
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <p className="text-gray-500 text-sm font-medium">
-          Home / Produtos / Tênis / Nike / <span className="text-gray-800 font-bold">Tênis Nike Revolution 6 Next Nature Masculino</span>
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#F9F8FE]">
+      <main className="max-w-7xl mx-auto px-4 py-8">
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-10 mb-20">
-        <div className="w-full lg:w-[60%]">
-            <ProductGallery images={mockImages} />
-        </div>
-        <div className="w-full lg:w-[40%]">
-           <ProductOptions />
+          <div className="mb-8 flex flex-col gap-2">
+              <label className="text-[#474747] text-[16px] font-bold">Ordenar por</label>
+            <select className="w-full lg:w-[308px] h-[60px] border border-[#474747] rounded-md px-4 text-[#474747] bg-white text-sm font-medium outline-none">
+                <option>Mais relevantes</option>
+                <option>Menor preço</option>
+                <option>Maior preço</option>
+              </select>
+
+            <button 
+              onClick={() => setIsFilterOpen(true)}
+              className="lg:hidden w-[48px] h-[48px] bg-[#C92071] rounded-md flex items-center justify-center shrink-0"
+            >
+              <Filter className="text-white w-6 h-6" />
+            </button>
+          </div>
+
+
+        <div className="flex gap-8">
+          <aside className="hidden lg:block w-[308px] shrink-0 bg-white p-6 rounded shadow-sm h-fit">
+            <h3 className="text-[#474747] text-[16px] font-bold mb-3 tracking-wide">Filtrar por</h3>
+            <div className="w-full h-px bg-[#CCCCCC] mb-6"></div>
+            <FilterSidebar />
+          </aside>
+
+          <section className="flex-1">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-6">
+              {productsData.map((product) => (
+                <ProductCard key={product.id} {...product} />
+              ))}
+            </div>
+          </section>
         </div>
       </main>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
-         
-         <div className="flex justify-between items-center mb-6">
-            <h2 className="text-[#474747] font-bold text-xl md:text-2xl tracking-tight">
-                Produtos Relacionados
-            </h2>
-            <a href="/produtos" className="text-[#C92071] flex items-center gap-2 font-bold hover:underline text-sm md:text-base font-sans group">
-              Ver todos 
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </a>
-         </div>
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {relatedProducts.map((product) => (
-               <ProductCard 
-                 key={product.id}
-                 category={product.category}
-                 name={product.name}
-                 price={product.price}
-                 priceDiscount={product.priceDiscount}
-                 image={product.image}
-               />
-            ))}
-         </div>
-      </section>
+      {isFilterOpen && (
+        <div className="fixed inset-0 z-[100] flex justify-end">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setIsFilterOpen(false)}></div>
+          <div className="relative w-[80%] max-w-[350px] bg-white h-full shadow-xl overflow-y-auto p-6">
+            <div className="flex justify-between items-center mb-6 border-b pb-4">
+              <h3 className="font-bold text-[#474747] text-lg">Filtrar por</h3>
+              <button onClick={() => setIsFilterOpen(false)}><X className="w-6 h-6" /></button>
+            </div>
+            <FilterSidebar />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
