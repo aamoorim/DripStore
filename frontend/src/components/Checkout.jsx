@@ -12,5 +12,4 @@ const Input = ({ label, placeholder }) => {
     </div>
   );
 };
-
 export default Input;
