@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-node"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  firstname String
+  surname   String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  slug      String
+  useInMenu Boolean   @default(false) @map("use_in_menu")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  products  Product[] @relation("ProductToCategory")
+
+  @@map("categories")
+}
+
+model Product {
+  id                Int            @id @default(autoincrement())
+  enabled           Boolean        @default(false)
+  name              String
+  slug              String
+  useInMenu         Boolean        @default(false) @map("use_in_menu")
+  stock             Int            @default(0)
+  description       String?
+  price             Float
+  priceWithDiscount Float          @map("price_with_discount")
+  createdAt         DateTime       @default(now()) @map("created_at")
+  updatedAt         DateTime       @updatedAt @map("updated_at")
+  images            ProductImage[]
+  options           ProductOption[]
+  categories        Category[]     @relation("ProductToCategory")
+
+  @@map("products")
+}
+
+model ProductImage {
+  id        Int     @id @default(autoincrement())
+  productId Int     @map("product_id")
+  enabled   Boolean @default(false)
+  path      String
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@map("product_images")
+}
+
+model ProductOption {
+  id        Int      @id @default(autoincrement())
+  productId Int      @map("product_id")
+  title     String
+  shape     Shape    @default(square)
+  radius    Int      @default(0)
+  type      OptionType @default(text)
+  values    String
+  product   Product  @relation(fields: [productId], references: [id])
+
+  @@map("product_options")
+}
+
+enum Shape {
+  square
+  circle
+}
+
+enum OptionType {
+  text
+  color
+}
