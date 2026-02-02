@@ -1,0 +1,30 @@
+### Configurações Iniciais
+@baseUrl = http://localhost:3000
+
+
+### Agora tente criar o produto novamente usando o ID retornado acima (provavelmente 1)
+POST {{baseUrl}}/products
+...
+
+### Criar um Novo Produto
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Camiseta Capivara Codante",
+  "slug": "camiseta-capivara-codante",
+  "price": 89.90,
+  "priceWithDiscount": 75.00,
+  "enabled": true,
+  "stock": 100,
+  "category_ids": [1],
+  "images": [
+    { "path": "https://imgur.com/capivara.jpg", "enabled": true }
+  ],
+  "options": [
+    { "title": "Tamanho", "values": "G, M, P", "type": "text" }
+  ]
+}
+
+### Listar Todos os Produtos
+GET {{baseUrl}}/products
