@@ -43,11 +43,11 @@ Este projeto consiste no desenvolvimento de uma API robusta para gerenciamento d
 | Endpoint: Criar endpoint de atualização de categoria | [ ] | |
 | Endpoint: Criar endpoint de deletar categoria | [ ] | |
 | **4. CRUD de Produtos** | | Alicia |
-| Endpoint: Criar endpoint para obter uma lista de produtos | [ ] | Alicia |
-| Endpoint: Criar endpoint para obter informações do produto pelo ID | [ ] | Alicia |
-| Endpoint: Criar endpoint de criação de produto | [ ] | Alicia |
-| Endpoint: Criar endpoint de atualização de produto | [ ] | Alicia |
-| Endpoint: Criar endpoint de deletar produto | [ ] | Alicia |
+| Endpoint: Criar endpoint para obter uma lista de produtos | [x] | Alicia |
+| Endpoint: Criar endpoint para obter informações do produto pelo ID | [x] | Alicia |
+| Endpoint: Criar endpoint de criação de produto | [x] | Alicia |
+| Endpoint: Criar endpoint de atualização de produto | [x] | Alicia |
+| Endpoint: Criar endpoint de deletar produto | [x] | Alicia |
 | **5. Autenticação e Segurança** | | Mariana |
 | Endpoint: Login de Usuário | [ ] | Mariana |
 | Implementação de Geração de Token JWT | [ ] | Mariana |
