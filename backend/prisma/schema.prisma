@@ -60,7 +60,7 @@ model ProductImage {
   productId Int     @map("product_id")
   enabled   Boolean @default(false)
   path      String
-  product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@map("product_images")
 }
@@ -73,7 +73,7 @@ model ProductOption {
   radius    Int      @default(0)
   type      OptionType @default(text)
   values    String
-  product   Product  @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@map("product_options")
 }
