@@ -1,40 +1,46 @@
 const prisma = require('../config/prisma');
 
 class ProductService {
-  async create(data) {
-    const { 
-      category_ids, // Array de IDs: [1, 2]
-      images,       // Array de objetos: [{ path: 'url.jpg' }]
-      options,      // Array de objetos: [{ title: 'Cor', values: 'Azul' }]
-      ...productData 
-    } = data;
+  // Obter lista de produtos (Com paginação e filtros se desejar futuramente)
+  async getAll() {
+    return await prisma.product.findMany({
+      include: { images: true, categories: true, options: true }
+    });
+  }
 
+  // Obter informações do produto pelo ID
+  async getById(id) {
+    return await prisma.product.findUnique({
+      where: { id: Number(id) },
+      include: { images: true, categories: true, options: true }
+    });
+  }
+
+  // Criação de produto 
+  async create(data) {
+    const { category_ids, images, options, ...productData } = data;
     return await prisma.product.create({
       data: {
         ...productData,
-        // Relacionamento N:N com Categorias
-        categories: {
-          connect: category_ids.map(id => ({ id }))
-        },
-        // Relacionamento 1:N com Imagens
-        images: {
-          create: images
-        },
-        // Relacionamento 1:N com Opções
-        options: {
-          create: options
-        }
+        categories: { connect: category_ids.map(id => ({ id })) },
+        images: { create: images },
+        options: { create: options }
       }
     });
   }
 
-  async getAll() {
-    return await prisma.product.findMany({
-      include: {
-        images: true,
-        categories: true,
-        options: true
-      }
+  // Atualização de produto
+  async update(id, data) {
+    return await prisma.product.update({
+      where: { id: Number(id) },
+      data: data
+    });
+  }
+
+  // Deletar produto
+  async delete(id) {
+    return await prisma.product.delete({
+      where: { id: Number(id) }
     });
   }
 }
