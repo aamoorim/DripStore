@@ -1,0 +1,36 @@
+### Listar categorias
+GET http://localhost:3000/v1/categories
+
+###
+
+### Criar categoria
+POST http://localhost:3000/v1/categories
+Content-Type: application/json
+
+{
+  "name": "Tênis",
+  "slug": "tenis",
+  "use_in_menu": true
+}
+
+###
+
+### Buscar por ID
+GET http://localhost:3000/v1/categories/1
+
+###
+
+### Atualizar
+PUT http://localhost:3000/v1/categories/1
+Content-Type: application/json
+
+{
+  "name": "Tênis Esportivo",
+  "slug": "tenis-esportivo",
+  "use_in_menu": true
+}
+
+###
+
+### Deletar
+DELETE http://localhost:3000/v1/categories/1
