@@ -51,7 +51,7 @@ Este projeto consiste no desenvolvimento de uma API robusta para gerenciamento d
 | **5. Autenticação e Segurança** | | Mariana |
 | Endpoint: Login de Usuário | [x] | Mariana |
 | Implementação de Geração de Token JWT | [x] | Mariana |
-| Middleware de Validação de Token | [ ] | Mariana |
+| Middleware de Validação de Token | [x] | Mariana |
 
 ---
 
