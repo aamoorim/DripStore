@@ -49,8 +49,8 @@ Este projeto consiste no desenvolvimento de uma API robusta para gerenciamento d
 | Endpoint: Criar endpoint de atualização de produto | [x] | Alicia |
 | Endpoint: Criar endpoint de deletar produto | [x] | Alicia |
 | **5. Autenticação e Segurança** | | Mariana |
-| Endpoint: Login de Usuário | [ ] | Mariana |
-| Implementação de Geração de Token JWT | [ ] | Mariana |
+| Endpoint: Login de Usuário | [x] | Mariana |
+| Implementação de Geração de Token JWT | [x] | Mariana |
 | Middleware de Validação de Token | [ ] | Mariana |
 
 ---
