@@ -4,6 +4,7 @@ const router = express.Router();
 // Import controllers
 const ProductController = require('../controllers/ProductController');
 const { register, login } = require('../controllers/AuthController');
+const UserController = require('../controllers/UserController');
 
 // Import middleware
 const validateToken = require('../middlewares/authMiddleware');
@@ -16,9 +17,16 @@ router.post('/login', login);
 router.get('/products', ProductController.index);
 router.get('/products/:id', ProductController.show);
 
-// Rotas protegidas (POST, PUT, DELETE) com middleware
+// Rotas protegidas (GET, POST, PUT, DELETE) com Middleware
+// Rotas de Produtos
 router.post('/products', validateToken, ProductController.store);
 router.put('/products/:id', validateToken, ProductController.update);
 router.delete('/products/:id', validateToken, ProductController.delete);
+
+// Rotas de Usuários
+router.get('/users/:id', validateToken, UserController.getUserById);
+router.post('/users', validateToken, UserController.createUser);
+router.put('/users/:id', validateToken, UserController.updateUser);
+router.delete('/users/:id', validateToken, UserController.deleteUser);
 
 module.exports = router;

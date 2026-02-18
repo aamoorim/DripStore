@@ -32,10 +32,10 @@ Este projeto consiste no desenvolvimento de uma API robusta para gerenciamento d
 | Schema: Usuários, Categorias e Produtos | [x] |  Alicia  |
 | Migrations executadas no Postgres | [x] |  Alicia  |
 | **3. CRUD de usuarios** | | Mariana |
-| Endpoint: Criar endpoint para obter informações do usuário pelo ID | [ ] | Mariana |
-| Endpoint: Criar endpoint de cadastro de usuário | [ ] | Mariana |
-| Endpoint: Criar endpoint atualizar usuário | [ ] | Mariana |
-| Endpoint: Criar endpoint de deletar usuário (DELETE) | [ ] | Mariana |
+| Endpoint: Criar endpoint para obter informações do usuário pelo ID | [x] | Mariana |
+| Endpoint: Criar endpoint de cadastro de usuário | [x] | Mariana |
+| Endpoint: Criar endpoint atualizar usuário | [x] | Mariana |
+| Endpoint: Criar endpoint de deletar usuário (DELETE) | [x] | Mariana |
 | **4. CRUD de Categorias** | | |
 | Endpoint: Criar endpoint para obter uma lista de categorias | [ ] | |
 | Endpoint: Criar endpoint para obter informações da categoria pelo ID | [ ] | |
