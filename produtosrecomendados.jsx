@@ -2,6 +2,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import BuyBox from "../components/BuyBox";
+import Section from "../components/Section";
+import ProductListing from "../components/ProductListing";
 import { NavLink } from "react-router-dom";
 
 const ProdutosRecomendados = () => {
@@ -11,6 +13,7 @@ const ProdutosRecomendados = () => {
 
       <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 py-8">
 
+        {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-6 lg:col-span-2">
           <span className="hover:text-black cursor-pointer">Home</span>
           {" / "}
@@ -23,8 +26,7 @@ const ProdutosRecomendados = () => {
           </span>
         </div>
 
-        <NavLink to="/produtosrecomendados">Recomendados</NavLink>
-
+        {/* Gallery */}
         <Gallery
           images={[
             "https://via.placeholder.com/600",
@@ -33,6 +35,7 @@ const ProdutosRecomendados = () => {
           ]}
         />
 
+        {/* BuyBox */}
         <BuyBox
           name="K-Swiss V8 - Masculino"
           reference="REF123"
@@ -40,6 +43,7 @@ const ProdutosRecomendados = () => {
           rating={4.5}
         />
 
+        {/* Descrição */}
         <div className="bg-white rounded-xl p-8 mt-10 lg:col-span-2">
           <h2 className="text-xl font-bold text-[#474747] mb-4">
             Descrição do produto
@@ -57,6 +61,47 @@ const ProdutosRecomendados = () => {
             proporcionando versatilidade para diversas ocasiões. A sola emborrachada
             garante maior aderência e segurança a cada passo.
           </p>
+        </div>
+
+        {/* Produtos recomendados */}
+        <div className="mt-16 lg:col-span-2">
+
+          <Section
+            title="Produtos recomendados"
+            titleAlign="left"
+            link={{
+              text: "Ver todos",
+              href: "/products"
+            }}
+          >
+            <ProductListing
+              products={[
+                {
+                  name: "K-Swiss V8 - Masculino",
+                  image: "https://via.placeholder.com/300",
+                  price: 200,
+                  priceDiscount: 149.9
+                },
+                {
+                  name: "Tênis Esportivo",
+                  image: "https://via.placeholder.com/300",
+                  price: 180
+                },
+                {
+                  name: "Tênis Casual",
+                  image: "https://via.placeholder.com/300",
+                  price: 220,
+                  priceDiscount: 189
+                },
+                {
+                  name: "Tênis Street",
+                  image: "https://via.placeholder.com/300",
+                  price: 199
+                }
+              ]}
+            />
+          </Section>
+
         </div>
 
       </main>
