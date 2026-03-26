@@ -1,7 +1,6 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Input from '../components/Input'
-import Checkout from '../components/Checkout'
+import Input from '../components/Checkout'
 
 const MeusPedidos = () => {
   return (
@@ -47,57 +46,57 @@ const MeusPedidos = () => {
         </section>
 
         {/* Pagamento */}
-  <section class="mb-10">
-  <h2 class="text-lg font-semibold mb-6">
+  <section className="mb-10">
+  <h2 className="text-lg font-semibold mb-6">
     Pagamento
   </h2>
 
   {/* Opções de pagamento */}
-  <div class="flex gap-4 mb-8">
+  <div className="flex gap-4 mb-8">
     <button
-      class="px-6 py-3 rounded-lg border border-primary text-primary font-semibold bg-white">
+      className="px-6 py-3 rounded-lg border border-primary text-primary font-semibold bg-white">
       Cartão de crédito
     </button>
 
     <button
-      class="px-6 py-3 rounded-lg border border-gray-300 text-gray-500 bg-gray-100 cursor-not-allowed">
+      className="px-6 py-3 rounded-lg border border-gray-300 text-gray-500 bg-gray-100 cursor-not-allowed">
       Pix
     </button>
   </div>
 
   {/* Formulário Cartão de Crédito */}
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <div class="flex flex-col gap-2 md:col-span-2">
-      <label class="text-sm font-semibold">Nome no cartão *</label>
+    <div className="flex flex-col gap-2 md:col-span-2">
+      <label className="text-sm font-semibold">Nome no cartão *</label>
       <input
         type="text"
         placeholder="Nome impresso no cartão"
-        class="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
+        className="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
     </div>
 
-    <div class="flex flex-col gap-2 md:col-span-2">
-      <label class="text-sm font-semibold">Número do cartão *</label>
+    <div className="flex flex-col gap-2 md:col-span-2">
+      <label className="text-sm font-semibold">Número do cartão *</label>
       <input
         type="text"
         placeholder="0000 0000 0000 0000"
-        class="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
+        className="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
     </div>
 
-    <div class="flex flex-col gap-2">
-      <label class="text-sm font-semibold">Validade *</label>
+    <div className="flex flex-col gap-2">
+      <label className="text-sm font-semibold">Validade *</label>
       <input
         type="text"
         placeholder="MM/AA"
-        class="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
+        className="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
     </div>
 
-    <div class="flex flex-col gap-2">
-      <label class="text-sm font-semibold">CVV *</label>
+    <div className="flex flex-col gap-2">
+      <label className="text-sm font-semibold">CVV *</label>
       <input
         type="password"
         placeholder="***"
-        class="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
+        className="bg-light-gray-3 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
     </div>
 
      </div>

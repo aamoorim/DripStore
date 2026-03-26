@@ -9,7 +9,7 @@ const productsData = Array.from({ length: 15 }).map((_, index) => ({
   name: "K-Swiss V8 - Masculino",
   price: 200,
   priceDiscount: 100,
-  image: "assets/tenis.png"
+  image: "/assets/tenis.png"
 }));
 
 export default function ProductListingPage() {
