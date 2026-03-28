@@ -5,9 +5,6 @@ import Input from '../components/Checkout'
 const MeusPedidos = () => {
   return (
     <>
-      <Header />
-      
-
        <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
 
         <h1 className="text-2xl font-bold text-dark-gray mb-8">
