@@ -85,8 +85,8 @@ const Header = () => {
               />
 
               <div className="hidden md:flex items-center gap-4">
-                <a
-                  href="*"
+                <NavLink
+                  to="/register"
                   className="
                     underline underline-offset-2
                     text-dark-gray-2 tracking-wider
@@ -96,10 +96,9 @@ const Header = () => {
                   "
                 >
                   Cadastre-se
-                </a>
-                <input
-                  type="button"
-                  value="Entrar"
+                </NavLink>
+                <NavLink
+                  to="/login"
                   className="
                     bg-primary hover:bg-tertiary
                     transition-all duration-200
@@ -109,8 +108,11 @@ const Header = () => {
                     text-white cursor-pointer
                     tracking-wider
                     text-sm md:text-base
+                    flex items-center justify-center
                   "
-                />
+                >
+                  Entrar
+                </NavLink>
               </div>
             </div>
           </div>
@@ -287,32 +289,34 @@ const Header = () => {
         {/* Ações no rodapé da sidebar */}
         <div className="px-4 pb-6 border-top border-light-gray-3 flex flex-col gap-3">
           <div class="flex-1 border-b border-gray-300"></div>
-          <input
-            type="button"
-            value="Entrar"
+          <NavLink
+            to="/login"
             className="
               bg-primary hover:bg-tertiary
               transition-all duration-200
               rounded-lg
-              h-9
-              px-4
+              h-9 md:h-10
+              px-4 md:px-6
               text-white cursor-pointer
               tracking-wider
-              text-sm
+              text-sm md:text-base
+              flex items-center justify-center
             "
-          />
-          <a
-            href="*"
+          >
+            Entrar
+          </NavLink>
+          <NavLink
+            to="/register"
             className="
               underline underline-offset-2
               text-dark-gray-2 tracking-wider
               hover:text-primary
               transition-all duration-150
-              text-sm self-center
+              text-sm md:text-base
             "
           >
             Cadastre-se
-          </a>
+          </NavLink>
         </div>
       </div>
     </header>
