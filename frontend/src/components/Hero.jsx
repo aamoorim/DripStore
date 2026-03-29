@@ -55,7 +55,7 @@ const showcaseItems = useMemo(() => [
 
           <button
             onClick={handleNavigation}
-            className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-pink-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-pink-700 shadow-lg hover:shadow-pink-200"
+            className="group relative inline-flex items-center justify-center px-10 py-4 font-bold text-white transition-all duration-200 bg-pink-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-pink-700 shadow-lg hover:shadow-pink-200 cursor-pointer"
           >
             Aproveitar Agora
           </button>

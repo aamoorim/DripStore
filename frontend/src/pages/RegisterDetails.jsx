@@ -391,7 +391,7 @@ const RegisterDetails = () => {
             <button
               type="submit"
               className="
-                w-full bg-primary hover:bg-tertiary
+                w-full bg-pink-600 hover:bg-pink-700
                 text-white font-medium
                 rounded-lg py-2.5 text-sm
                 transition-colors duration-200 cursor-pointer
