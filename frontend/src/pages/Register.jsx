@@ -75,7 +75,7 @@ const Register = () => {
 
         <div className="hidden md:flex justify-center items-center">
           <img
-            src="../public/tenis-login.png"
+            src="../public/tenis-login-2.png"
             alt="Tênis"
             className="max-w-lg ml-10 w-full rotate-y-360 rotate-40"
           />
