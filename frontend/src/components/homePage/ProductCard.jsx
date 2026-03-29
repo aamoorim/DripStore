@@ -1,73 +1,63 @@
+import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 
-export const ProductCard = ({ name, image, price, priceDiscount, category, discountBadge }) => {
-  const { addToCart, cartItems } = useCart();
-  const isAdded = cartItems.some(item => item.name === name);
+export const ProductCard = ({ id, name, image, price, priceDiscount, category }) => {
+  const { addToCart, removeFromCart, isInCart } = useCart();
+  const isProductInCart = isInCart(id);
 
-  const handleAddToCart = () => {
-    const productToAdd = {
-      name,
-      image,
-      finalPrice: priceDiscount || price
-    };
-    addToCart(productToAdd);
+  const hasDiscount = typeof priceDiscount === 'number' && priceDiscount < price;
+  const discountPercentage = hasDiscount ? Math.round(((price - priceDiscount) / price) * 100) : 0;
+
+  const handleToggleCart = () => {
+    isProductInCart ? removeFromCart(id) : addToCart({ id, name, image, price, priceDiscount, category });
   };
 
+  const formatPrice = (value) => new Intl.NumberFormat("pt-BR", {
+    style: "currency", currency: "BRL",
+  }).format(value);
+
   return (
-    <div className="flex flex-col gap-2 p-4 bg-white rounded-lg shadow-sm relative group h-full">
-      {discountBadge && (
-        <span className="absolute top-6 left-6 bg-[#E7FF8D] text-[#474747] font-bold px-3 py-1 rounded-full text-xs z-10">
-          {discountBadge} OFF [cite: 35, 69]
-        </span>
-      )}
-      
-      <div className="relative bg-white rounded-lg p-4 flex items-center justify-center h-[250px] border border-gray-100 overflow-hidden">
-        <img 
-          src={image} 
-          alt={name} 
-          className="object-contain max-h-full transition-transform group-hover:scale-105" 
-        />
-      </div>
-
-      <p className="text-[12px] text-gray-400 font-bold mt-2 uppercase">{category || "Tênis"}</p>
-      
-      <h3 className="text-xl text-[#474747] font-medium leading-tight h-[56px] line-clamp-2 mb-2">
-        {name}
-      </h3>
-      
-      <div className="flex gap-2 items-center h-[32px] mb-4">
-        {priceDiscount ? (
-          <>
-            <span className="text-gray-400 line-through text-lg">
-              R$ {price.toFixed(2)}
-            </span>
-            <span className="text-[#1F1F1F] font-bold text-lg">
-              R$ {priceDiscount.toFixed(2)}
-            </span>
-          </>
-        ) : (
-          <span className="text-[#1F1F1F] font-bold text-lg">
-            R$ {price.toFixed(2)}
-          </span>
+    <div className="bg-white rounded-[4px] p-0 flex flex-col transition-all w-full">
+      <div className="relative bg-white rounded-[4px] mb-3 flex items-center justify-center h-[320px] w-full shadow-[0px_4px_25px_rgba(0,0,0,0.05)] border border-transparent hover:border-gray-50">
+        {hasDiscount && (
+          <div className="absolute top-4 left-4 bg-[#E7FFEC] text-[#474747] text-[12px] font-bold px-4 py-1 rounded-full z-10">
+            {discountPercentage}% OFF
+          </div>
         )}
+        <img src={image} alt={name} className="max-h-[200px] object-contain" />
       </div>
 
-      <div className="mt-auto flex flex-col gap-2">
+      <div className="flex flex-col px-1">
+        <span className="text-[12px] font-bold text-[#8F8F8F] mb-1">{category}</span>
+        <h3 className="text-[#474747] text-[16px] font-medium mb-2 tracking-tight">{name}</h3>
+
+        <div className="flex items-center gap-2 mb-4">
+          {hasDiscount ? (
+            <>
+              <del className="text-[#8F8F8F] text-[16px] line-through decoration-1">{formatPrice(price)}</del>
+              <strong className="text-[#1F1F1F] text-[16px] font-bold">{formatPrice(priceDiscount)}</strong>
+            </>
+          ) : (
+            <strong className="text-[#1F1F1F] text-[16px] font-bold">{formatPrice(price)}</strong>
+          )}
+        </div>
+      </div>
+      
+      <div className="flex flex-col gap-2">
         <button 
-          onClick={handleAddToCart}
-          disabled={isAdded}
-          className={`w-full font-bold py-3 rounded-md transition ${
-            isAdded 
-              ? "bg-[#28A745] text-white cursor-default" 
-              : "bg-[#C92071] text-white hover:bg-[#991957]"
+          onClick={handleToggleCart}
+          className={`w-full text-white font-bold h-[45px] rounded-[4px] text-[14px] transition-colors ${
+            isProductInCart ? 'bg-green-600' : 'bg-[#EE006F] hover:bg-[#C92071]'
           }`}
         >
-          {isAdded ? "Adicionado ao carrinho" : "Adicionar ao carrinho"}
+          {isProductInCart ? 'Adicionado ao carrinho' : 'Adicionar ao carrinho'}
         </button>
-
-        <button className="w-full bg-[#F5F5F5] text-gray-600 font-bold py-3 rounded-md hover:bg-gray-200 transition">
-          Ver mais 
-        </button>
+        <Link
+          to={`/produto/${id}`}
+          className="w-full flex items-center justify-center bg-[#EDF1F5] text-[#474747] font-bold h-[45px] rounded-[4px] text-[14px] hover:bg-[#D8DEE7] transition-colors"
+        >
+          Ver mais
+        </Link>
       </div>
     </div>
   );
