@@ -8,6 +8,7 @@ import Login from '../pages/login';
 import Register from '../pages/Register';
 import RegisterDetails from '../pages/RegisterDetails';
 import ProductDetails from '../pages/ProductDetails';
+import FinalizarCompra from '../pages/FinalizarCompra';
 
 function Path() {
   return (
@@ -20,6 +21,7 @@ function Path() {
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
       <Route path='/register/details' element={<RegisterDetails/>}/>
+      <Route path='/finalizar-compra' element={<FinalizarCompra/>}/>
     </Routes>
   );
 }

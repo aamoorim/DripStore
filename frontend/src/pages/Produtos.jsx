@@ -5,17 +5,17 @@ import { PRODUCTS_MOCK } from '../data/mockData';
 
 const FilterGroup = ({ label, options, selectedFilters, onFilterChange }) => (
   <div className="mb-6">
-    <h4 className="text-[#474747] text-[14px] font-bold mb-3 tracking-tight">{label}</h4>
+    <h4 className="text-dark-gray-2 text-[14px] font-bold mb-3 tracking-tight">{label}</h4>
     <div className="flex flex-col gap-2.5">
       {options.map((option) => (
-        <label key={option} className="flex items-center gap-2.5 text-[14px] text-[#474747] cursor-pointer group">
+        <label key={option} className="flex items-center gap-2.5 text-[14px] text-dark-gray-2 cursor-pointer group">
           <input
             type="checkbox"
             checked={selectedFilters.includes(option)}
             onChange={() => onFilterChange(option)}
-            className="w-4 h-4 accent-[#C92071] rounded border-gray-300 transition-all"
+            className="w-4 h-4 accent-primary rounded border-gray-300 transition-all"
           />
-          <span className="group-hover:text-[#C92071] transition-colors">{option}</span>
+          <span className="group-hover:text-primary transition-colors">{option}</span>
         </label>
       ))}
     </div>
@@ -62,13 +62,13 @@ const Produtos = () => {
 
   return (
     <div className="bg-[#F9F8FE] min-h-screen py-8 px-4 md:px-10 lg:px-20">
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-360 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-          <p className="text-[#474747] text-[15px]">
+          <p className="text-dark-gray-2 text-[15px]">
             Todos os produtos – <strong>{filteredProducts.length}</strong> produto(s)
           </p>
-          <div className="flex items-center gap-3 bg-white border border-[#474747] rounded-[4px] px-3 h-[45px]">
-            <span className="text-[14px] font-bold text-[#474747]">Ordenar por:</span>
+          <div className="flex items-center gap-3 bg-white border border-dark-gray-2 rounded-sm px-3 h-11.25">
+            <span className="text-[14px] font-bold text-dark-gray-2">Ordenar por:</span>
             <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="bg-transparent outline-none text-[14px]">
               <option value="menor-preco">Menor preço</option>
               <option value="maior-preco">Maior preço</option>
@@ -77,8 +77,8 @@ const Produtos = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          <aside className="w-full lg:w-[280px] bg-white p-6 rounded-[4px] shadow-sm h-fit">
-            <h3 className="text-[#474747] font-bold text-[16px] mb-5 border-b pb-3">Filtrar por:</h3>
+          <aside className="w-full lg:w-70 bg-white p-6 rounded-sm shadow-sm h-fit">
+            <h3 className="text-dark-gray-2 font-bold text-[16px] mb-5 border-b pb-3">Filtrar por:</h3>
             {filterConfig.map(group => (
               <FilterGroup key={group.label} {...group} selectedFilters={activeFilters} onFilterChange={toggleFilter} />
             ))}
@@ -94,7 +94,7 @@ const Produtos = () => {
                   <div key={p.id} className="bg-white border border-gray-100 rounded-lg shadow-sm flex flex-col justify-between transition-all hover:shadow-md">
                     <Link to={`/produto/${p.id}`} className="block relative p-4">
                       {hasDisc && (
-                        <div className="absolute top-3 left-3 bg-[#E7FFEC] text-[#1F1F1F] text-[10px] font-bold px-2.5 py-1 rounded-full z-10 uppercase">
+                        <div className="absolute top-3 left-3 bg-[#E7FFEC] text-dark-gray text-[10px] font-bold px-2.5 py-1 rounded-full z-10 uppercase">
                           {Math.round(((p.price - p.priceDiscount) / p.price) * 100)}% OFF
                         </div>
                       )}
@@ -103,17 +103,17 @@ const Produtos = () => {
                       </div>
                     </Link>
 
-                    <div className="px-4 pb-2 flex flex-col flex-grow">
+                    <div className="px-4 pb-2 flex flex-col grow">
                       <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{p.category}</span>
-                      <h3 className="text-[15px] font-semibold text-[#474747] mt-1 mb-2 leading-tight">{p.name}</h3>
+                      <h3 className="text-[15px] font-semibold text-dark-gray-2 mt-1 mb-2 leading-tight">{p.name}</h3>
                       <div className="flex items-center gap-2">
                         {hasDisc ? (
                           <>
                             <del className="text-xs text-gray-400">{formatPrice(p.price)}</del>
-                            <strong className="text-base font-bold text-[#1F1F1F]">{formatPrice(p.priceDiscount)}</strong>
+                            <strong className="text-base font-bold text-dark-gray">{formatPrice(p.priceDiscount)}</strong>
                           </>
                         ) : (
-                          <strong className="text-base font-bold text-[#1F1F1F]">{formatPrice(p.price)}</strong>
+                          <strong className="text-base font-bold text-dark-gray">{formatPrice(p.price)}</strong>
                         )}
                       </div>
                     </div>
@@ -121,13 +121,13 @@ const Produtos = () => {
                     <div className="px-4 pb-4 flex flex-col gap-2">
                       <button 
                         onClick={() => isInCart ? removeFromCart(p.id) : addToCart(p)}
-                        className={`w-full font-bold py-1.5 text-[13px] rounded-md transition ${
-                          isInCart ? 'bg-green-600 text-white' : 'bg-[#C92071] text-white hover:bg-[#991956]'
+                        className={`w-full font-bold py-1.5 text-[13px] rounded-md transition cursor-pointer ${
+                          isInCart ? 'bg-green-600 text-white' : 'bg-primary text-white hover:bg-tertiary'
                         }`}
                       >
                         {isInCart ? 'Adicionado ao carrinho' : 'Adicionar ao carrinho'}
                       </button>
-                      <Link to={`/produto/${p.id}`} className="w-full text-center bg-[#EDF1F5] text-[#474747] font-bold py-1.5 text-[13px] rounded-md hover:bg-gray-200">
+                      <Link to={`/produto/${p.id}`} className="w-full text-center bg-[#EDF1F5] text-dark-gray-2 font-bold py-1.5 text-[13px] rounded-md hover:bg-gray-200">
                         Ver mais
                       </Link>
                     </div>

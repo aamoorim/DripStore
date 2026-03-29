@@ -23,7 +23,7 @@ export default function BuyBox({
 
       {/* Nome */}
       <div>
-        <h1 className="text-3xl font-bold text-[#474747]">
+        <h1 className="text-3xl font-bold text-dark-gray-2">
           {name}
         </h1>
 
@@ -43,7 +43,7 @@ export default function BuyBox({
 
       {/* Cores */}
       <div>
-        <p className="font-semibold text-[#474747] mb-3">
+        <p className="font-semibold text-dark-gray-2 mb-3">
           Cor
         </p>
 
@@ -66,7 +66,7 @@ export default function BuyBox({
 
       {/* Tamanhos */}
       <div>
-        <p className="font-semibold text-[#474747] mb-3">
+        <p className="font-semibold text-dark-gray-2 mb-3">
           Tamanho
         </p>
 
@@ -78,7 +78,7 @@ export default function BuyBox({
               className={`w-12 h-12 border rounded-md font-semibold transition ${
                 selectedSize === size
                   ? "bg-black text-white border-black"
-                  : "bg-white text-[#474747] border-gray-300"
+                  : "bg-white text-dark-gray-2 border-gray-300"
               }`}
               aria-pressed={selectedSize === size}
             >
@@ -90,7 +90,7 @@ export default function BuyBox({
 
       {/* Quantidade */}
       <div>
-        <p className="font-semibold text-[#474747] mb-3">
+        <p className="font-semibold text-dark-gray-2 mb-3">
           Quantidade
         </p>
 
@@ -123,7 +123,7 @@ export default function BuyBox({
         onClick={handleBuy}
         className={`mt-4 py-3 font-semibold rounded-md transition ${
           selectedColor && selectedSize
-            ? "bg-[#C92071] text-white hover:opacity-90"
+            ? "bg-primary text-white hover:opacity-90"
             : "bg-gray-300 text-gray-500 cursor-not-allowed"
         }`}
       >
