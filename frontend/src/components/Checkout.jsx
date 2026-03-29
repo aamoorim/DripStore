@@ -2,7 +2,7 @@ const Input = ({ label, placeholder }) => {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-sm font-semibold text-dark-gray">
-        {label} *
+        {label} <span className="text-red-500">*</span>
       </label>
       <input
         type="text"
