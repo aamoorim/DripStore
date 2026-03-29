@@ -10,7 +10,7 @@ import { GiConverseShoe } from "react-icons/gi";
 import { FaArrowLeft } from "react-icons/fa";
 import Section from "../components/Section";
 import Hero from "../components/Hero";
-import ProductListing from "../components/HomePage/ProductListing.jsx";
+import ProductListing from "../components/homePage/ProductListing.jsx";
 import jordan from "../assets/Laye 1.png";
 import { HOME_PRODUCTS } from "../data/mockData";
 
