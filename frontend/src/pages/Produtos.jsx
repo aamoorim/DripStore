@@ -20,8 +20,8 @@ export default function ProductListingPage() {
       <main className="max-w-7xl mx-auto px-4 py-8">
 
           <div className="mb-8 flex flex-col gap-2">
-              <label className="text-[#474747] text-[16px] font-bold">Ordenar por</label>
-            <select className="w-full lg:w-[308px] h-[60px] border border-[#474747] rounded-md px-4 text-[#474747] bg-white text-sm font-medium outline-none">
+              <label className="text-dark-gray-2 text-[16px] font-bold">Ordenar por</label>
+            <select className="w-full lg:w-77 h-15 border border-dark-gray-2 rounded-md px-4 text-dark-gray-2 bg-white text-sm font-medium outline-none">
                 <option>Mais relevantes</option>
                 <option>Menor preço</option>
                 <option>Maior preço</option>
@@ -29,7 +29,7 @@ export default function ProductListingPage() {
 
             <button 
               onClick={() => setIsFilterOpen(true)}
-              className="lg:hidden w-[48px] h-[48px] bg-[#C92071] rounded-md flex items-center justify-center shrink-0"
+              className="lg:hidden w-12 h-12 bg-primary rounded-md flex items-center justify-center shrink-0"
             >
               <Filter className="text-white w-6 h-6" />
             </button>
@@ -37,9 +37,9 @@ export default function ProductListingPage() {
 
 
         <div className="flex gap-8">
-          <aside className="hidden lg:block w-[308px] shrink-0 bg-white p-6 rounded shadow-sm h-fit">
-            <h3 className="text-[#474747] text-[16px] font-bold mb-3 tracking-wide">Filtrar por</h3>
-            <div className="w-full h-px bg-[#CCCCCC] mb-6"></div>
+          <aside className="hidden lg:block w-77 shrink-0 bg-white p-6 rounded shadow-sm h-fit">
+            <h3 className="text-dark-gray-2 text-[16px] font-bold mb-3 tracking-wide">Filtrar por</h3>
+            <div className="w-full h-px bg-light-gray-2 mb-6"></div>
             <FilterSidebar />
           </aside>
 
@@ -54,11 +54,11 @@ export default function ProductListingPage() {
       </main>
 
       {isFilterOpen && (
-        <div className="fixed inset-0 z-[100] flex justify-end">
+        <div className="fixed inset-0 z-100 flex justify-end">
           <div className="absolute inset-0 bg-black/40" onClick={() => setIsFilterOpen(false)}></div>
-          <div className="relative w-[80%] max-w-[350px] bg-white h-full shadow-xl overflow-y-auto p-6">
+          <div className="relative w-[80%] max-w-87.5 bg-white h-full shadow-xl overflow-y-auto p-6">
             <div className="flex justify-between items-center mb-6 border-b pb-4">
-              <h3 className="font-bold text-[#474747] text-lg">Filtrar por</h3>
+              <h3 className="font-bold text-dark-gray-2 text-lg">Filtrar por</h3>
               <button onClick={() => setIsFilterOpen(false)}><X className="w-6 h-6" /></button>
             </div>
             <FilterSidebar />
