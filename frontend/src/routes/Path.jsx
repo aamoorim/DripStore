@@ -7,13 +7,15 @@ import MeusPedidos from '../pages/MeusPedidos';
 import Login from '../pages/login';
 import Register from '../pages/Register';
 import RegisterDetails from '../pages/RegisterDetails';
+import ProductDetails from '../pages/ProductDetails';
 
 function Path() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/produtos" element={<Produtos />} />
       <Route path="/categorias" element={<Categorias />} />
+      <Route path="/produtos" element={<Produtos />} />
+      <Route path="/produto/:id" element={<ProductDetails />} />
       <Route path="/meus-pedidos" element={<MeusPedidos />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
