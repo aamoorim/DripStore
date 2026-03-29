@@ -64,7 +64,7 @@ const HomePage = () => {
       <Hero />
 
       <section className="py-12 px-6 md:px-20 lg:px-40">
-        <h2 className="text-2xl font-bold text-gray-800 mb-8">Coleções em destaque</h2>
+        <h2 className="text-2xl font-bold text-gray-700 mb-8">Coleções em destaque</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {FEATURED_COLLECTIONS.map((col) => (
@@ -83,8 +83,7 @@ const HomePage = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center mt-20">
-          <h3 className="text-xl font-bold text-[#474747] mb-8">Categorias</h3>
+        <div className="flex flex-col items-center mt-10">
           <div className="flex justify-center gap-8 flex-wrap">
             {CATEGORIES.map((cat) => (
               <CategoryItem 
@@ -106,9 +105,9 @@ const HomePage = () => {
           )}
         </div>
 
-        <Section className="mt-16">
+        <Section>
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-[#474747]">Produtos em alta</h2>
+            <h2 className="text-2x3 font-semibold text-gray-700 ">Produtos em alta</h2>
             <button onClick={() => handleNavigation()} className="text-[#C92071] flex items-center gap-2 font-medium">
               Ver todos &rarr;
             </button>
@@ -120,7 +119,8 @@ const HomePage = () => {
       <section className="bg-white py-20 px-6 md:px-20 lg:px-40 flex flex-col md:flex-row items-center gap-16">
         <div className="relative flex-1 flex justify-center">
           <div className="absolute inset-0 bg-gradient-to-tr from-pink-50 to-transparent rounded-full blur-3xl opacity-60 -z-10" />
-          <img src={jordan} alt="Promoção Especial" className="w-full max-w-sm drop-shadow-2xl rotate-[-12deg]" />
+          <img src={jordan} alt="Promoção Especial" className="w-full max-w-sm drop-shadow-2xl rotate-[-12deg] hover:rotate-0 transition-transform duration-500 ease-in-out hover:scale-110 cursor-pointer" />
+          
         </div>
         
         <div className="flex-1 space-y-5">

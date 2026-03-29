@@ -11,7 +11,7 @@ const Hero = () => {
 const showcaseItems = useMemo(() => [
   {label: 'Coleção Heritage', headline: 'O Ícone das Ruas', subtext: 'O clássico Air Force 1 em sua versão mais vibrante.', img: nike },
   {label: 'Estilo Casual', headline: 'Design Atemporal', subtext: 'Conforto lendário com detalhes em Mesh premium.', img: nike },
-  {label: 'Cultura Sneaker', headline: 'Das Quadras para o Mundo', subtext: 'O tênis que definiu gerações de estilo urbano.', img: nike },
+  {label: 'Cultura Sneaker', headline: 'Para o Mundo', subtext: 'O tênis que definiu gerações de estilo urbano.', img: nike },
   {label: 'Performance Air', headline: 'Conforto nas Alturas', subtext: 'Amortecimento tecnológico para o seu movimento diário.', img: nike },
 ], []);
 
