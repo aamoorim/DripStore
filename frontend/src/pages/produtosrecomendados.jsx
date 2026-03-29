@@ -1,18 +1,12 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import BuyBox from "../components/BuyBox";
 import Section from "../components/Section";
 import ProductListing from "../components/ProductListing";
-import { NavLink } from "react-router-dom";
 
 const ProdutosRecomendados = () => {
   return (
     <>
-      <Header />
-
       <main className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 py-8">
-
         {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-6 lg:col-span-2">
           <span className="hover:text-black cursor-pointer">Home</span>
@@ -45,7 +39,7 @@ const ProdutosRecomendados = () => {
 
         {/* Descrição */}
         <div className="bg-white rounded-xl p-8 mt-10 lg:col-span-2">
-          <h2 className="text-xl font-bold text-[#474747] mb-4">
+          <h2 className="text-xl font-bold text-dark-gray-2 mb-4">
             Descrição do produto
           </h2>
 
@@ -105,8 +99,6 @@ const ProdutosRecomendados = () => {
         </div>
 
       </main>
-
-      <Footer />
     </>
   );
 };
