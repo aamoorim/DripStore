@@ -126,10 +126,10 @@ const HomePage = () => {
         <div className="flex-1 space-y-5">
           <span className="text-[#C92071] font-bold uppercase text-sm tracking-widest">Oferta especial</span>
           <h2 className="text-4xl md:text-5xl font-black text-[#474747] leading-tight">
-            Air Jordan edição de <br /> colecionador
+            Air Jordan edição<br /> colecionador
           </h2>
           <p className="text-gray-500 leading-relaxed text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. [cite: 118, 270]
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <button 
             onClick={() => handleNavigation()}
