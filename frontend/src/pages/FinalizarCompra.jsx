@@ -1,27 +1,61 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import Input from '../components/Checkout';
+import { useLocation, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import Input from "../components/Checkout";
 
 function FinalizarCompra() {
   const location = useLocation();
   const navigate = useNavigate();
   const { removeFromCart } = useCart();
 
-  const checkoutProduct = location.state || {};
+  const state = location.state || {};
 
-  const productId = checkoutProduct.productId;
-  const productName =
-    checkoutProduct.name || 'Produto selecionado';
-  const productImage =
-    checkoutProduct.image || 'https://via.placeholder.com/80';
-  const productTotal =
-    checkoutProduct.price != null ? checkoutProduct.price : 219.0;
+  const { productId, name, image, price, items = [], total } = state;
+
+  // Se vierem vários itens, usamos eles.
+  // Se não vierem, caímos no modo "um produto só".
+  const hasMultipleItems = Array.isArray(items) && items.length > 0;
+
+  const singleItem = !hasMultipleItems
+    ? {
+        id: productId,
+        name: name || "Produto selecionado",
+        image: image || "https://via.placeholder.com/80",
+        quantity: 1,
+        unitPrice: price != null ? price : 219.0,
+      }
+    : null;
+
+  const checkoutItems = hasMultipleItems
+    ? items.map((item) => ({
+        id: item.id,
+        name: item.name,
+        image: item.image,
+        quantity: item.quantity || 1,
+        unitPrice: item.priceDiscount || item.price || 0,
+      }))
+    : singleItem
+      ? [singleItem]
+      : [];
+
+  const computedTotal =
+    total != null
+      ? total
+      : checkoutItems.reduce(
+          (sum, item) => sum + item.unitPrice * item.quantity,
+          0,
+        );
 
   const handleCancelOrder = () => {
-    if (productId) {
+    // Se vieram vários itens, remove todos do carrinho
+    if (hasMultipleItems) {
+      checkoutItems.forEach((item) => {
+        if (item.id) removeFromCart(item.id);
+      });
+    } else if (productId) {
       removeFromCart(productId);
     }
-    navigate('/'); // mandar o usuário de volta pra home
+
+    navigate("/"); // mandar o usuário de volta pra home
   };
 
   return (
@@ -33,7 +67,8 @@ function FinalizarCompra() {
             Finalizar compra
           </h1>
           <p className="mt-1 text-sm text-gray-500">
-            Revise seus dados, escolha a forma de pagamento e conclua seu pedido.
+            Revise seus dados, escolha a forma de pagamento e conclua seu
+            pedido.
           </p>
         </header>
 
@@ -166,30 +201,53 @@ function FinalizarCompra() {
             </div>
           </div>
 
-          {/* COLUNA DIREITA: RESUMO */}
+          {/* coluna direita: resumo */}
           <aside className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-7 h-fit flex flex-col gap-5">
             <h2 className="text-lg font-bold text-dark-gray-2">
               Resumo do pedido
             </h2>
 
-            {/* Produto */}
-            <div className="flex gap-4 items-center">
-              <div className="w-20 h-20 rounded-xl border border-gray-100 bg-[#F9F8FE] flex items-center justify-center">
-                <img
-                  src={productImage}
-                  alt={productName}
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
+            {/* Lista de itens selecionados */}
+            <div className="flex flex-col gap-4 max-h-64 overflow-y-auto pr-1">
+              {checkoutItems.map((item) => {
+                const lineTotal = item.unitPrice * item.quantity;
+                return (
+                  <div
+                    key={item.id}
+                    className="flex gap-4 items-center border-b border-gray-50 pb-3 last:border-b-0"
+                  >
+                    <div className="w-16 h-16 rounded-xl border border-gray-100 bg-[#F9F8FE] flex items-center justify-center">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-12 h-12 object-contain"
+                      />
+                    </div>
 
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-dark-gray-2">
-                  {productName}
-                </p>
-                <p className="mt-1 text-xs text-gray-400">
-                  Produto selecionado
-                </p>
-              </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-dark-gray-2 line-clamp-2">
+                        {item.name}
+                      </p>
+                      <p className="mt-1 text-xs text-gray-400">
+                        Qtde: {item.quantity}
+                      </p>
+                      <p className="mt-1 text-xs text-gray-500">
+                        R${" "}
+                        {item.unitPrice.toLocaleString("pt-br", {
+                          minimumFractionDigits: 2,
+                        })}{" "}
+                        un.
+                      </p>
+                      <p className="mt-1 text-sm font-bold text-primary">
+                        R${" "}
+                        {lineTotal.toLocaleString("pt-br", {
+                          minimumFractionDigits: 2,
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* Valores */}
@@ -197,7 +255,7 @@ function FinalizarCompra() {
               <div className="flex justify-between">
                 <span className="text-gray-500">Subtotal</span>
                 <span className="font-medium text-dark-gray-2">
-                  R$ {productTotal.toFixed(2)}
+                  R$ {computedTotal.toFixed(2)}
                 </span>
               </div>
 
@@ -219,7 +277,7 @@ function FinalizarCompra() {
                   Total
                 </span>
                 <span className="font-bold text-xl text-dark-gray-2">
-                  R$ {productTotal.toFixed(2)}
+                  R$ {computedTotal.toFixed(2)}
                 </span>
               </div>
               <span className="text-xs text-gray-500">
@@ -228,8 +286,8 @@ function FinalizarCompra() {
             </div>
 
             {/* Botão principal no resumo */}
-            <button className="w-full text-white font-bold py-3 rounded-xl bg-warning hover:bg-warning hover:opacity-80 hover:shadow-md transition-all cursor-pointer text-sm uppercase tracking-wide">
-              Realizar pagamento
+            <button className="w-full text-sm md:text-sm font-bold bg-warning hover:bg-warning hover:opacity-80 text-white py-3 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer uppercase tracking-wide">
+              Finalizar compra
             </button>
 
             {/* Ações secundárias */}
