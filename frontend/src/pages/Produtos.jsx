@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Filter, X } from 'lucide-react';
 import { FilterSidebar } from '../components/FilterSidebar';
-import { ProductCard } from '../components/ProductCard';
+import { ProductCard } from '../components/HomePage/ProductCard';
 
 const productsData = Array.from({ length: 15 }).map((_, index) => ({
   id: index,
