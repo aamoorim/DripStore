@@ -18,7 +18,6 @@ const Login = () => {
     <div className="bg-[linear-gradient(180deg,hsla(239,70%,83%,1)_0%,hsla(240,100%,97%,1)_100%,hsla(237,64%,56%,1)_100%)]  w-full flex items-center justify-center min-h-[calc(100vh-150px)] py-12 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl w-full">
 
-        {/* CARD LOGIN */}
         <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm w-full max-w-md mx-auto">
 
           <div className="mb-6">
@@ -32,8 +31,6 @@ const Login = () => {
           </div>
 
           <form className="space-y-4" onSubmit={handleLogin}>
-
-            {/* EMAIL */}
             <div>
               <label className="text-sm text-gray-600 mb-1 block">
                 Login <span className='text-red-600'>*</span>
@@ -48,8 +45,6 @@ const Login = () => {
                 className="w-full px-3 py-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-pink-600"
               />
             </div>
-
-            {/* SENHA */}
             <div className="relative">
               <label className="text-sm text-gray-600 mb-1 block">
                 Senha <span className='text-red-600'>*</span>
@@ -91,8 +86,6 @@ const Login = () => {
               Ou continue com
               <div className="flex-1 h-px bg-gray-200" />
             </div>
-
-            {/* SOCIAL */}
             <div className="flex justify-center gap-3">
               <button className="p-2 border border-gray-200 rounded-full hover:bg-gray-50 cursor-pointer">
                 <FcGoogle size={18} />
@@ -104,11 +97,9 @@ const Login = () => {
 
           </form>
         </div>
-
-        {/* IMAGEM */}
         <div className="hidden md:flex justify-center items-center">
           <img
-            src="../assets/tenis-login.png"
+            src="./tenis-login-2.png"
             alt="Tênis"
             className="max-w-lg ml-10 w-full rotate-y-360 rotate-40"
           />
