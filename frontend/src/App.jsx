@@ -7,9 +7,11 @@ import Footer from './components/Footer';
 function App() {
   return (
     <BrowserRouter>
+      <CartProvider>
       <Header />
       <Routes /> {/* Chama as rotas */}
       <Footer/>
+      </CartProvider>
     </BrowserRouter>
   );
 }
