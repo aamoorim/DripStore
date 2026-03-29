@@ -15,8 +15,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-[#f6f6f6] w-full flex items-center justify-center min-h-[calc(100vh-150px)] py-12 px-4">
-
+    <div className="bg-[linear-gradient(180deg,hsla(239,70%,83%,1)_0%,hsla(240,100%,97%,1)_100%,hsla(237,64%,56%,1)_100%)]  w-full flex items-center justify-center min-h-[calc(100vh-150px)] py-12 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl w-full">
 
         {/* CARD LOGIN */}
@@ -74,14 +73,12 @@ const Login = () => {
               </button>
             </div>
 
-            {/* ESQUECI SENHA */}
             <div className="text-left text-xs font-medium text-gray-700">
               <a href="#" className="underline">
                 Esqueci minha senha
               </a>
             </div>
 
-            {/* BOTÃO */}
             <button
               type="submit"
               className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg text-sm font-medium transition"
@@ -89,7 +86,6 @@ const Login = () => {
               Acessar conta
             </button>
 
-            {/* DIVISOR */}
             <div className="flex items-center gap-2 text-xs text-gray-400 pt-2">
               <div className="flex-1 h-px bg-gray-200" />
               Ou continue com
@@ -114,7 +110,7 @@ const Login = () => {
           <img
             src="../assets/tenis-login.png"
             alt="Tênis"
-            className="max-w-md w-full rotate-y-360"
+            className="max-w-lg ml-10 w-full rotate-y-360 rotate-40"
           />
         </div>
       </div>
