@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
+import logoFooter from "../assets/logo-footer.svg";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
           <div className="w-full md:w-1/2 lg:w-2/5 flex flex-col">
             <img
               className="mb-4 md:mb-6 w-32 md:w-52 lg:w-64"
-              src="../assets/logo-footer.svg"
+              src={logoFooter}
               alt="Logo Digital Store Branca"
             />
             <p className="mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
