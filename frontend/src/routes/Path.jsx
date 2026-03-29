@@ -9,6 +9,7 @@ import Register from '../pages/Register';
 import RegisterDetails from '../pages/RegisterDetails';
 import ProductDetails from '../pages/ProductDetails';
 import FinalizarCompra from '../pages/FinalizarCompra';
+import MiniCartExpanded from '../pages/MiniCartExpanded';
 
 function Path() {
   return (
@@ -22,6 +23,7 @@ function Path() {
       <Route path="/register" element={<Register/>} />
       <Route path='/register/details' element={<RegisterDetails/>}/>
       <Route path='/finalizar-compra' element={<FinalizarCompra/>}/>
+      <Route path='/mini-cart-expanded' element={<MiniCartExpanded/>}/>
     </Routes>
   );
 }
