@@ -62,7 +62,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-8 text-gray-400 hover:text-gray-600"
+                className="absolute right-3 top-8 text-gray-400 hover:text-gray-600 cursor-pointer"
               >
                 {showPassword ? <FiEyeOff /> : <FiEye />}
               </button>
@@ -76,7 +76,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg text-sm font-medium transition"
+              className="w-full bg-pink-600 hover:bg-pink-700 text-white py-3 rounded-lg text-sm font-medium transition cursor-pointer"
             >
               Acessar conta
             </button>
