@@ -183,3 +183,4 @@ export const PRODUCTS_MOCK = [
   }
 ];
 
+export const ALL_PRODUCT = [...HOME_PRODUCTS, ...PRODUCTS_MOCK];
