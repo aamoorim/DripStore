@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook} from 'react-icons/fa';
+import tenisLogin2 from '../assets/tenis-login-2.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -99,7 +100,7 @@ const Login = () => {
         </div>
         <div className="hidden md:flex justify-center items-center">
           <img
-            src="/tenis-login-2.png"
+            src={tenisLogin2}
             alt="Tênis"
             className="max-w-lg ml-10 w-full rotate-y-360 rotate-40"
           />

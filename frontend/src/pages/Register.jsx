@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import tenisLogin2 from '../assets/tenis-login-2.png';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ const Register = () => {
 
         <div className="hidden md:flex justify-center items-center">
           <img
-            src="/tenis-login-2.png"
+            src={tenisLogin2}
             alt="Tênis"
             className="max-w-lg ml-10 w-full rotate-y-360 rotate-40"
           />
