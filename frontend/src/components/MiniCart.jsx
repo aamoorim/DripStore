@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
@@ -23,7 +22,7 @@ export const MiniCart = () => {
                 <div className="flex flex-col text-sm">
                   <p className="font-bold text-[#474747] leading-tight">{item.name}</p>
                   <p className="font-bold text-[#C92071]">
-                    R$ {item.finalPrice.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
+                    R$ {(item.priceDiscount || item.price || 0).toLocaleString('pt-br', { minimumFractionDigits: 2 })}
                   </p>
                 </div>
               </div>
@@ -34,7 +33,7 @@ export const MiniCart = () => {
             <div className="flex justify-between items-center mb-6 text-sm">
               <span className="font-bold text-[#474747]">Valor total:</span>
               <span className="font-bold text-[#C92071] text-lg">
-                R$ {totalValue.toLocaleString('pt-br', { minimumFractionDigits: 2 })}
+                R$ {(totalValue || 0).toLocaleString('pt-br', { minimumFractionDigits: 2 })}
               </span>
             </div>
             
