@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    nome: "",
     email: "",
-    senha: "",
-    confirmarSenha: "",
   });
 
   const handleChange = (e) => {
@@ -19,19 +19,25 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você faria a chamada para API / backend
-    console.log("Dados de cadastro:", formData);
-    alert("Cadastro enviado (simulação).");
+    navigate("/register/details", {
+      state: {
+        email: formData.email,
+      },
+    });
   };
 
   return (
-    <main className="min-h-[calc(100vh-200px)] bg-light-gray-3 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 md:p-8">
+    <main className="min-h-[calc(100vh-200px)] bg-[linear-gradient(180deg,hsla(239,70%,83%,1)_0%,hsla(240,100%,97%,1)_100%,hsla(237,64%,56%,1)_100%)] flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6 md:p-8 mr-60">
         <h1 className="text-2xl md:text-3xl font-semibold text-dark-gray-2 mb-2">
           Crie sua conta
         </h1>
         <p className="text-sm text-dark-gray-3 mb-6">
-          Já tem uma conta? Entre <a href="/login" className="underline">aqui</a>.
+          Já tem uma conta? Entre{" "}
+          <a href="/login" className="underline">
+            aqui
+          </a>
+          .
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -64,13 +70,21 @@ const Register = () => {
               mt-2 w-full bg-primary hover:bg-tertiary
               text-white font-medium
               rounded-lg py-2.5 text-sm
-              transition-colors duration-200
+              transition-colors duration-200 cursor-pointer
             "
           >
-            Cadastrar
+            Continuar
           </button>
         </form>
       </div>
+
+      <div className="hidden md:flex justify-center items-center">
+          <img
+            src="../assets/tenis-login.png"
+            alt="Tênis"
+            className="max-w-md w-full rotate-y-360 rotate-40"
+          />
+        </div>
     </main>
   );
 };

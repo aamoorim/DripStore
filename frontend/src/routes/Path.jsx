@@ -6,6 +6,7 @@ import Categorias from '../pages/Categorias';
 import MeusPedidos from '../pages/MeusPedidos';
 import Login from '../pages/login';
 import Register from '../pages/Register';
+import RegisterDetails from '../pages/RegisterDetails';
 
 function Path() {
   return (
@@ -16,6 +17,7 @@ function Path() {
       <Route path="/meus-pedidos" element={<MeusPedidos />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
+      <Route path='/register/details' element={<RegisterDetails/>}/>
     </Routes>
   );
 }

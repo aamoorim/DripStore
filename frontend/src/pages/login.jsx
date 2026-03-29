@@ -98,10 +98,10 @@ const Login = () => {
 
             {/* SOCIAL */}
             <div className="flex justify-center gap-3">
-              <button className="p-2 border border-gray-200 rounded-full hover:bg-gray-50">
+              <button className="p-2 border border-gray-200 rounded-full hover:bg-gray-50 cursor-pointer">
                 <FcGoogle size={18} />
               </button>
-              <button className="p-2 border border-gray-200 rounded-full hover:bg-gray-50">
+              <button className="p-2 border border-gray-200 rounded-full hover:bg-gray-50 cursor-pointer">
                 <FaFacebook className="text-blue-600" size={18} />
               </button>
             </div>
@@ -112,12 +112,11 @@ const Login = () => {
         {/* IMAGEM */}
         <div className="hidden md:flex justify-center items-center">
           <img
-            src="../assets/tenis.png"
+            src="../assets/tenis-login.png"
             alt="Tênis"
-            className="max-w-md w-full"
+            className="max-w-md w-full rotate-y-360"
           />
         </div>
-
       </div>
     </div>
   );
