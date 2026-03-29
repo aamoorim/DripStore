@@ -8,6 +8,7 @@ import Section from '../components/Section';
 import Hero from '../components/Hero';
 import ProductListing from '../components/HomePage/ProductListing';
 import jordan from '../assets/Laye 1.png';
+import { HOME_PRODUCTS } from '../data/mockData'; 
 
 
 const CATEGORIES = [
@@ -16,100 +17,6 @@ const CATEGORIES = [
   { id: 'caps', label: "Bonés", icon: <PiBaseballCapLight size={40} /> },
   { id: 'headphones', label: "Headphones", icon: <PiHeadphonesLight size={40} /> },
   { id: 'shoes', label: "Tênis", icon: <GiConverseShoe size={40} /> },
-];
-
-const MOCK_PRODUCTS = [
-{
-    id: 1,
-    name: "Nike Air Max 270 React",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop",
-    price: 899.9,
-    priceDiscount: 649.9,
-    category: "shoes"
-  },
-  {
-    id: 2,
-    name: "Air Force 1 Heritage Red",
-    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=800&auto=format&fit=crop",
-    price: 799.9,
-    priceDiscount: 599.9,
-    category: "shoes"
-  },
-  {
-    id: 3,
-    name: "Camiseta Nike Sportswear Tech",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800&auto=format&fit=crop",
-    price: 219.9,
-    priceDiscount: 179.9,
-    category: "t-shirts"
-  },
-  {
-    id: 4,
-    name: "Camiseta Oversized Essential",
-    image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=800&auto=format&fit=crop",
-    price: 199.9,
-    category: "t-shirts"
-  },
-  { 
-    id: 5, 
-    name: "Calça Cargo Street Black", 
-    image: "https://www.streetcompany.com.br/img/produtos/5/5_FT_04.png", 
-    price: 499.9, 
-    priceDiscount: 399.9, 
-    category: "pants" 
-  },
-  {
-    id: 6,
-    name: "Jogger Fleece Sport",
-    image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=800&auto=format&fit=crop",
-    price: 379.9,
-    category: "pants"
-  },
-  {
-    id: 11,
-    name: "Calça Jogger Tech Pack",
-    image: "https://basicamente.com/cdn/shop/files/100012337300005-L1_2815cd16-0391-44f0-ba67-a2bc371d7f12.jpg?v=1738681168&width=1000",
-    price: 549.9,
-    priceDiscount: 479.9,
-    category: "pants"
-  },
-  {
-    id: 7,
-    name: "Boné Nike Heritage86",
-    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=800&auto=format&fit=crop",
-    price: 149.9,
-    priceDiscount: 119.9,
-    category: "caps"
-  },
-  {
-    id: 8,
-    name: "Boné Snapback Pro",
-    image: "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?q=80&w=800&auto=format&fit=crop",
-    price: 179.9,
-    category: "caps"
-  },
-  {
-    id: 12,
-    name: "Boné Heritage Metal Swoosh",
-    image: "https://images.unsplash.com/photo-1534215754734-18e55d13e346?q=80&w=800&auto=format&fit=crop",
-    price: 169.9,
-    category: "caps"
-  },
-  {
-    id: 9,
-    name: "Headphone JBL Tune 510BT",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop",
-    price: 349.9,
-    priceDiscount: 299.9,
-    category: "headphones"
-  },
-  {
-    id: 10,
-    name: "Sony WH-CH520 Wireless",
-    image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800&auto=format&fit=crop",
-    price: 449.9,
-    category: "headphones"
-  }
 ];
 
 const FEATURED_COLLECTIONS = [
@@ -139,8 +46,8 @@ const HomePage = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const filteredProducts = useMemo(() => {
     return activeCategory 
-      ? MOCK_PRODUCTS.filter(p => p.category === activeCategory)
-      : MOCK_PRODUCTS;
+      ?  HOME_PRODUCTS.filter(p => p.category === activeCategory)
+      :  HOME_PRODUCTS;
   }, [activeCategory]);
 
   const handleNavigation = (path = '/produtos') => {
