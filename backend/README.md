@@ -1,99 +1,121 @@
-# 🚀 Projeto Backend - E-commerce API
+# E-commerce API — Backend
 
-Este projeto consiste no desenvolvimento de uma API robusta para gerenciamento de um e-commerce, utilizando Node.js e Sequelize. O foco é fornecer uma estrutura escalável seguindo o padrão MSC (Model-Service-Controller).
-
-## 👥 Equipe
-* **Alicia**
-* **Mariana Amorim**
-* **STQ**
+API REST para gerenciamento de e-commerce, desenvolvida com Node.js seguindo o padrão MSC (Model-Service-Controller).
 
 ---
 
-## 🛠️ Stack Tecnológica
-* **Ambiente:** Node.js
-* **Framework:** Express.js
-* **ORM:** Primas
-* **Banco de Dados:** PostgreSQL
-* **Segurança:** JWT (JSON Web Token) & Bcrypt
-* **Testes:** Jest
-* **Produtividade:** Dotenv & Nodemon
+## Stack
+
+| Categoria | Tecnologias |
+|-----------|-------------|
+| Ambiente | Node.js, Express.js |
+| Banco de dados | PostgreSQL + Prisma ORM (hospedado no NeonDB) |
+| Segurança | JWT, Bcrypt |
+| Testes & Dev | Insomnia, Dotenv, Nodemon |
 
 ---
 
-### 📋 Checklist de Implementação e Responsáveis
+## Equipe
 
-| Funcionalidade | Status | Responsável |
-| :--- | :---: | :--- |
-| **1. Infraestrutura e Configuração** | | |
-| Estrutura de Diretórios (MSC) | [X] | Alicia |
-| Configuração de `.env` e Scripts | [ ] | |
-| Setup do Servidor (Express/App/Server) | [ ] | |
-| **2. Banco de Dados (Prisma)** | | |
-| Schema: Usuários, Categorias e Produtos | [x] |  Alicia  |
-| Migrations executadas no Postgres | [x] |  Alicia  |
-| **3. CRUD de usuarios** | | Mariana |
-| Endpoint: Criar endpoint para obter informações do usuário pelo ID | [x] | Mariana |
-| Endpoint: Criar endpoint de cadastro de usuário | [x] | Mariana |
-| Endpoint: Criar endpoint atualizar usuário | [x] | Mariana |
-| Endpoint: Criar endpoint de deletar usuário (DELETE) | [x] | Mariana |
-| **4. CRUD de Categorias** | | |
-| Endpoint: Criar endpoint para obter uma lista de categorias | [ ] | |
-| Endpoint: Criar endpoint para obter informações da categoria pelo ID | [ ] | |
-| Endpoint: Criar endpoint de cadastro de categoria | [ ] | |
-| Endpoint: Criar endpoint de atualização de categoria | [ ] | |
-| Endpoint: Criar endpoint de deletar categoria | [ ] | |
-| **4. CRUD de Produtos** | | Alicia |
-| Endpoint: Criar endpoint para obter uma lista de produtos | [x] | Alicia |
-| Endpoint: Criar endpoint para obter informações do produto pelo ID | [x] | Alicia |
-| Endpoint: Criar endpoint de criação de produto | [x] | Alicia |
-| Endpoint: Criar endpoint de atualização de produto | [x] | Alicia |
-| Endpoint: Criar endpoint de deletar produto | [x] | Alicia |
-| **5. Autenticação e Segurança** | | Mariana |
-| Endpoint: Login de Usuário | [x] | Mariana |
-| Implementação de Geração de Token JWT | [x] | Mariana |
-| Middleware de Validação de Token | [x] | Mariana |
+| Membro | Responsabilidades |
+|--------|-------------------|
+| Alicia | Estrutura de diretórios, schema e migrations das tabelas |
+| Mariana Amorim | CRUD de usuários, CRUD de categorias, autenticação, testes de endpoints (Insomnia), hospedagem do banco (NeonDB) |
+| STQ | — |
 
 ---
 
-## 🛠️ Guia de Configuração para a Equipe
+## Progresso — 21/21 tarefas concluídas ✅
 
-Para que o projeto rode sem erros na sua máquina, siga este passo a passo de ajustes iniciais:
+### ✅ Infraestrutura e configuração
+- [x] Estrutura de diretórios (MSC) — *Alícia, Mariana e Sintique*
+- [x] Configuração de `.env` e scripts — *Mariana*
+- [x] Setup do servidor (Express / App / Server) — *Alícia*
 
-### 1. Variáveis de Ambiente (.env)
-Crie um arquivo chamado `.env` na raiz do projeto e copie o conteúdo de `.env.example`. Você precisará ajustar a `DATABASE_URL` conforme suas credenciais locais do PostgreSQL:
+### ✅ Banco de dados (Prisma + NeonDB)
+- [x] Schema: usuários, categorias e produtos — *Alicia*
+- [x] Migrations executadas no Postgres — *Alicia*
+- [x] Hospedagem do banco no NeonDB — *Mariana*
 
+### ✅ CRUD de Usuários
+- [x] Obter usuário por ID — *Mariana*
+- [x] Cadastro de usuário — *Mariana*
+- [x] Atualizar usuário — *Mariana*
+- [x] Deletar usuário — *Mariana*
+
+### ✅ CRUD de Categorias
+- [x] Listar categorias — *Mariana*
+- [x] Obter categoria por ID — *Mariana*
+- [x] Cadastro de categoria — *Mariana*
+- [x] Atualizar categoria — *Mariana*
+- [x] Deletar categoria — *Mariana*
+
+### ✅ CRUD de Produtos
+- [x] Listar produtos — *Alicia*
+- [x] Obter produto por ID — *Alicia*
+- [x] Criar produto — *Alicia*
+- [x] Atualizar produto — *Alicia*
+- [x] Deletar produto — *Alicia*
+
+### ✅ Autenticação e segurança
+- [x] Login de usuário — *Mariana*
+- [x] Geração de token JWT — *Mariana*
+- [x] Middleware de validação de token — *Mariana*
+
+### ✅ Testes de endpoints
+- [x] Testes manuais de todos os endpoints via Insomnia — *Sintique*
+
+---
+
+## Configuração do ambiente
+
+### 1. Variáveis de ambiente
+Crie um `.env` na raíz:
 ```env
-# Exemplo de URL: postgresql://USUARIO:SENHA@localhost:PORTA/NOME_DO_BANCO?schema=public
-DATABASE_URL="postgresql://postgres:suasenha@localhost:5432/NOME_DO_BANCO?schema=public"
+DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_do_banco?schema=public"
 ```
 
----
+> Se for usar o banco hospedado no NeonDB, a `DATABASE_URL` já vem configurada — só solicitar ao time.
 
-## 🗄️ Guia de Configuração do Banco de Dados
-
-Como estamos utilizando **PostgreSQL** com **Prisma ORM**, o gerenciamento das tabelas é automatizado. Siga a ordem abaixo para garantir que seu ambiente local esteja sincronizado.
-
-### 1. Preparação da URL de Conexão
-Certifique-se de que seu arquivo `.env` contém a string de conexão correta:
-```env
-# Formato: postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public
-DATABASE_URL="postgresql://postgres:suasenha@localhost:5432/nome_do_banco?schema=public"
-```
-2. Sincronizando as Tabelas (Migrate)
-Sempre que você baixar o projeto pela primeira vez ou quando houver mudanças no arquivo schema.prisma, rode:
+### 2. Comandos do banco de dados
 ```bash
+# Sincronizar tabelas (primeira vez ou após mudanças no schema)
 npx prisma migrate dev
-```
-O que isso faz? Ele compara seu arquivo de configuração com o banco real, cria as tabelas necessárias e gera o histórico de alterações na pasta /prisma/migrations.
-3. Visualização Gráfica (Prisma Studio)
-Não precisa instalar ferramentas pesadas como DBeaver ou pgAdmin para ver os dados. O Prisma possui um painel administrativo nativo:
-```bash
+
+# Visualizar dados no navegador (http://localhost:5555)
 npx prisma studio
+
+# Após git pull, instalar dependências novas
+npm install
 ```
-Isso abrirá uma interface em seu navegador (geralmente em http://localhost:5555) onde você pode criar, editar e excluir registros manualmente de forma visual.
 
-4. Dicas de Fluxo de Trabalho
-Instalação: Sempre que baixar uma atualização do repositório (git pull), rode npm install para garantir que novas bibliotecas foram instaladas.
+### 3. Alterar o schema
 
-Novas Tabelas: Se você precisar alterar o banco, mude o arquivo prisma/schema.prisma e rode npx prisma migrate dev --name nome_da_mudanca.
+Edite `prisma/schema.prisma` e rode:
+```bash
+npx prisma migrate dev --name nome_da_mudanca
+```
 
+---
+
+## Estrutura do projeto
+```
+.
+├── server.js
+├── app.js
+└── src/
+    ├── config/
+    │   └── prisma.js
+    ├── controllers/
+    │   ├── AuthController.js
+    │   ├── UserController.js
+    │   ├── CategoryController.js
+    │   └── ProductController.js
+    ├── middlewares/
+    │   └── AuthMiddleware.js
+    ├── routes/
+    │   └── index.js
+    └── services/
+        ├── CategoryService.js
+        └── ProductService.js
+```
