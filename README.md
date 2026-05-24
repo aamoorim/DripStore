@@ -43,7 +43,6 @@ O sistema foi construído utilizando:
 - **Node.js + Express** no backend
 - **Prisma ORM**
 - **PostgreSQL hospedado na Neon**
-- Ambiente de desenvolvimento baseado em **Linux**
 
 A aplicação possui estrutura escalável, componentização reutilizável e separação organizada de responsabilidades.
 
